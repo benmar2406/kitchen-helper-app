@@ -1,0 +1,122 @@
+.recipeCard {
+  max-width: 300px;
+  min-width: 290px;
+  background-color: #78c0A8;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  height: 370px;
+}
+
+.recipe-header {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 280px;
+  width: 100%;
+  margin-bottom: 25px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.recipeImageContainer {
+  margin-bottom: 25px;
+  width: 100%;
+  height: 270px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.recipeImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute; 
+  z-index: 0;
+}
+
+.recipeTitle {
+  font-family: 'Mono Space AmaticSC-Bold';
+  font-size: 1.7rem;
+  color: #fff;
+  text-align: center;
+  z-index: 1; 
+  background: rgba(0, 0, 9, 0.4); 
+  border-radius: 4px;
+  width: 100%;
+  height: 100%; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  position: absolute;
+  padding: 5px;
+  box-sizing: border-box;
+  transition: font-size 0.3s ease-in-out, background 0.3s ease-in-out; /* Add transition */
+}
+
+.recipeTitle:hover {
+  font-size: 2rem;
+  background: rgba(0, 0, 9, 0.8);
+}
+
+.recipeButton {
+  width: 40%;
+  padding: 13px 20px;
+  padding-top: 16px;;
+  display: block;
+  margin-bottom: 1rem;
+  font-family: 'Quicksand-SemiBold', sans-serif;
+  font-size: 16px;
+  text-transform: uppercase;
+  border: 3px solid #fff;
+  border-radius: 25px;
+  box-shadow: 2px 2px 0px 0px #fff, -2px -2px 0px 0px #fff;
+  margin: auto;
+  font-weight: bold;
+  background-color: #78c0A8;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.recipeButton:hover {
+  background-color: #f0a830;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  }
+
+@media screen and (max-width: 600px) {
+  
+  .recipeCard {
+    min-width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  #recipeImg {
+    width: 100%;
+  }
+
+  .recipeButton {
+    margin: 0.8rem auto;
+    margin-bottom: 25px;
+  }
+
+  .recipeImageContainer {
+    overflow: hidden; 
+    background-size: cover;
+    border-radius: 15px;
+  }
+
+  .recipeTitle {
+      font-size: 2rem;
+      margin: 10px;
+  }
+}

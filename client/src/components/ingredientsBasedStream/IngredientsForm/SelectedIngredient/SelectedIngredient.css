@@ -1,0 +1,18 @@
+.SelectedIngredient{
+  margin: 5px;
+  padding: 7px;
+  border: 3px solid #78c0A8;
+  border-radius: 30px;
+  box-shadow: 2px 2px 0px 0px #78c0A8, -2px -2px 0px 0px #78c0A8;
+}
+
+.SelectedIngredient:hover {
+  cursor: pointer;
+  border: 3px solid #f0a830;
+  color: #f0a830;
+  box-shadow: 2px 2px 0px 0px #f0a830, -2px -2px 0px 0px #f0a830;
+}
+
+@media screen and (max-width: 600px) {
+
+}

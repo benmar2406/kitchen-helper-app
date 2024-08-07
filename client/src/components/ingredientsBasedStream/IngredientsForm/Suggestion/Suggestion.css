@@ -1,0 +1,13 @@
+.Suggestion{
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 30px;
+
+}
+
+.Suggestion:hover {
+  background-color: #78c0A8;
+}
+
+@media screen and (max-width: 600px) {
+}

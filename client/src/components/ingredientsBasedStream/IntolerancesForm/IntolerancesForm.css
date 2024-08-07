@@ -1,0 +1,16 @@
+ .IntolerancesForm {
+  margin: auto;
+  padding: 1.5rem;
+  padding-bottom: 2rem;
+  text-align: center;
+  width: 60%;
+}
+
+
+@media screen and (max-width: 600px) {
+  .IntolerancesForm {
+    margin-top: 20px;
+    padding: 0px;
+    width: 100%;  
+  }
+}

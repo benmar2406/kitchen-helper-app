@@ -1,0 +1,123 @@
+@font-face {
+  font-family: 'AmaticSC-Regular';
+  src: url(assets/fonts/AmaticSC-Regular.ttf)format('truetype');
+}
+
+@font-face {
+  font-family: 'Mono Space AmaticSC-Bold';
+  src: url(assets/fonts/AmaticSC-Bold.ttf)format('truetype');
+}
+
+
+@font-face {
+  font-family: 'Quicksand', sans-serif;
+  src: url(assets/fonts/Quicksand-Light.ttf)format('truetype');
+}
+
+@font-face {
+  font-family: 'Quicksand-SemiBold', sans-serif;
+  src: url(assets/fonts/Quicksand-SemiBold.ttf)format('truetype');
+}
+
+html {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1450' height='560' preserveAspectRatio='none' viewBox='0 0 1450 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask2241%26quot%3b)' fill='none'%3e%3crect width='1450' height='560' x='0' y='0' fill='rgba(120%2c 192%2c 168%2c 1)'%3e%3c/rect%3e%3cpath d='M531 168L296 403' stroke-width='10' stroke='url(%23SvgjsLinearGradient2242)' stroke-linecap='round' class='TopRight'%3e%3c/path%3e%3cpath d='M487 430L667 250' stroke-width='10' stroke='url(%23SvgjsLinearGradient2242)' stroke-linecap='round' class='TopRight'%3e%3c/path%3e%3cpath d='M1362 557L1092 827' stroke-width='10' stroke='url(%23SvgjsLinearGradient2243)' stroke-linecap='round' class='BottomLeft'%3e%3c/path%3e%3cpath d='M359 475L607 227' stroke-width='8' stroke='url(%23SvgjsLinearGradient2242)' stroke-linecap='round' class='TopRight'%3e%3c/path%3e%3cpath d='M735 117L539 313' stroke-width='10' stroke='url(%23SvgjsLinearGradient2242)' stroke-linecap='round' class='TopRight'%3e%3c/path%3e%3cpath d='M676 134L887 -77' stroke-width='10' stroke='url(%23SvgjsLinearGradient2243)' stroke-linecap='round' class='BottomLeft'%3e%3c/path%3e%3cpath d='M568 26L220 374' stroke-width='6' stroke='url(%23SvgjsLinearGradient2242)' stroke-linecap='round' class='TopRight'%3e%3c/path%3e%3cpath d='M252 35L508 -221' stroke-width='6' stroke='url(%23SvgjsLinearGradient2242)' stroke-linecap='round' class='TopRight'%3e%3c/path%3e%3cpath d='M575 219L422 372' stroke-width='10' stroke='url(%23SvgjsLinearGradient2242)' stroke-linecap='round' class='TopRight'%3e%3c/path%3e%3cpath d='M919 555L1178 296' stroke-width='10' stroke='url(%23SvgjsLinearGradient2243)' stroke-linecap='round' class='BottomLeft'%3e%3c/path%3e%3cpath d='M590 367L241 716' stroke-width='10' stroke='url(%23SvgjsLinearGradient2243)' stroke-linecap='round' class='BottomLeft'%3e%3c/path%3e%3cpath d='M614 555L411 758' stroke-width='8' stroke='url(%23SvgjsLinearGradient2243)' stroke-linecap='round' class='BottomLeft'%3e%3c/path%3e%3cpath d='M818 443L483 778' stroke-width='10' stroke='url(%23SvgjsLinearGradient2243)' stroke-linecap='round' class='BottomLeft'%3e%3c/path%3e%3cpath d='M414 263L602 75' stroke-width='8' stroke='url(%23SvgjsLinearGradient2243)' stroke-linecap='round' class='BottomLeft'%3e%3c/path%3e%3cpath d='M118 328L-105 551' stroke-width='10' stroke='url(%23SvgjsLinearGradient2242)' stroke-linecap='round' class='TopRight'%3e%3c/path%3e%3cpath d='M1397 344L1139 602' stroke-width='8' stroke='url(%23SvgjsLinearGradient2242)' stroke-linecap='round' class='TopRight'%3e%3c/path%3e%3cpath d='M679 474L834 319' stroke-width='6' stroke='url(%23SvgjsLinearGradient2243)' stroke-linecap='round' class='BottomLeft'%3e%3c/path%3e%3cpath d='M469 52L93 428' stroke-width='10' stroke='url(%23SvgjsLinearGradient2242)' stroke-linecap='round' class='TopRight'%3e%3c/path%3e%3cpath d='M232 221L23 430' stroke-width='8' stroke='url(%23SvgjsLinearGradient2242)' stroke-linecap='round' class='TopRight'%3e%3c/path%3e%3cpath d='M371 450L99 722' stroke-width='6' stroke='url(%23SvgjsLinearGradient2243)' stroke-linecap='round' class='BottomLeft'%3e%3c/path%3e%3cpath d='M386 257L245 398' stroke-width='10' stroke='url(%23SvgjsLinearGradient2242)' stroke-linecap='round' class='TopRight'%3e%3c/path%3e%3cpath d='M328 508L84 752' stroke-width='8' stroke='url(%23SvgjsLinearGradient2242)' stroke-linecap='round' class='TopRight'%3e%3c/path%3e%3cpath d='M348 254L50 552' stroke-width='10' stroke='url(%23SvgjsLinearGradient2243)' stroke-linecap='round' class='BottomLeft'%3e%3c/path%3e%3cpath d='M1297 483L1516 264' stroke-width='6' stroke='url(%23SvgjsLinearGradient2242)' stroke-linecap='round' class='TopRight'%3e%3c/path%3e%3cpath d='M1435 524L1597 362' stroke-width='10' stroke='url(%23SvgjsLinearGradient2242)' stroke-linecap='round' class='TopRight'%3e%3c/path%3e%3cpath d='M1263 1L864 400' stroke-width='10' stroke='url(%23SvgjsLinearGradient2243)' stroke-linecap='round' class='BottomLeft'%3e%3c/path%3e%3cpath d='M325 359L619 65' stroke-width='6' stroke='url(%23SvgjsLinearGradient2243)' stroke-linecap='round' class='BottomLeft'%3e%3c/path%3e%3cpath d='M149 406L-91 646' stroke-width='6' stroke='url(%23SvgjsLinearGradient2242)' stroke-linecap='round' class='TopRight'%3e%3c/path%3e%3cpath d='M1168 510L912 766' stroke-width='6' stroke='url(%23SvgjsLinearGradient2242)' stroke-linecap='round' class='TopRight'%3e%3c/path%3e%3cpath d='M111 216L531 -204' stroke-width='6' stroke='url(%23SvgjsLinearGradient2242)' stroke-linecap='round' class='TopRight'%3e%3c/path%3e%3cpath d='M1272 179L1618 -167' stroke-width='6' stroke='url(%23SvgjsLinearGradient2242)' stroke-linecap='round' class='TopRight'%3e%3c/path%3e%3cpath d='M870 532L1127 275' stroke-width='8' stroke='url(%23SvgjsLinearGradient2242)' stroke-linecap='round' class='TopRight'%3e%3c/path%3e%3cpath d='M1395 13L1187 221' stroke-width='8' stroke='url(%23SvgjsLinearGradient2243)' stroke-linecap='round' class='BottomLeft'%3e%3c/path%3e%3cpath d='M365 79L-28 472' stroke-width='10' stroke='url(%23SvgjsLinearGradient2243)' stroke-linecap='round' class='BottomLeft'%3e%3c/path%3e%3cpath d='M438 180L758 -140' stroke-width='10' stroke='url(%23SvgjsLinearGradient2243)' stroke-linecap='round' class='BottomLeft'%3e%3c/path%3e%3cpath d='M148 87L1 234' stroke-width='6' stroke='url(%23SvgjsLinearGradient2242)' stroke-linecap='round' class='TopRight'%3e%3c/path%3e%3cpath d='M1409 456L1827 38' stroke-width='8' stroke='url(%23SvgjsLinearGradient2242)' stroke-linecap='round' class='TopRight'%3e%3c/path%3e%3cpath d='M696 23L916 -197' stroke-width='8' stroke='url(%23SvgjsLinearGradient2242)' stroke-linecap='round' class='TopRight'%3e%3c/path%3e%3cpath d='M821 551L621 751' stroke-width='6' stroke='url(%23SvgjsLinearGradient2242)' stroke-linecap='round' class='TopRight'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask2241'%3e%3crect width='1450' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3clinearGradient x1='0%25' y1='100%25' x2='100%25' y2='0%25' id='SvgjsLinearGradient2242'%3e%3cstop stop-color='rgba(240%2c 168%2c 48%2c 0)' offset='0'%3e%3c/stop%3e%3cstop stop-color='rgba(240%2c 168%2c 48%2c 1)' offset='1'%3e%3c/stop%3e%3c/linearGradient%3e%3clinearGradient x1='100%25' y1='0%25' x2='0%25' y2='100%25' id='SvgjsLinearGradient2243'%3e%3cstop stop-color='rgba(240%2c 168%2c 48%2c 0)' offset='0'%3e%3c/stop%3e%3cstop stop-color='rgba(240%2c 168%2c 48%2c 1)' offset='1'%3e%3c/stop%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e");  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+body {
+  margin: 0 10%;
+  font-family: 'Quicksand', sans-serif, 'Courier New', Courier, monospace;
+  background-color: #FFE8C6;
+  min-height: 100vh;
+  padding-bottom: 25px;
+}
+
+h1 {
+  font-family: 'Mono Space AmaticSC-Bold';
+  color: #78c0A8;
+}
+
+h2 {
+  font-family: 'Mono Space AmaticSC-Bold';
+  text-align:center;
+  width: 100%;
+  font-size: 2.3rem;
+  }
+
+h3 {
+  font-family: 'Mono Space AmaticSC-Bold';
+  text-align: center;
+  font-size: 1.5rem;
+  color: #ffff;
+  margin: 10px;
+  height: 4rem;
+}
+
+p {
+  font-size: 1.2rem;
+  line-height: 1.5rem;  
+  color: #333;
+  font-family: 'Quicksand', sans-serif;
+}
+
+button {
+  margin: auto;
+  font-family: 'AmaticSC-Regular';
+  background-color: #78c0A8;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1.7rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #f0a830;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+label {
+  font-family: 'Mono Space AmaticSC-Bold';
+  font-size: 2rem;
+}
+
+hr {
+  border-color: #78c0A8;
+  
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@media screen and (max-width: 800px) {
+  
+  body {
+    margin: 0;
+    padding-bottom: 25px;
+  }
+
+  main {
+    width: 85%;
+    margin: auto;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 2rem;
+    height: auto;
+  }
+}

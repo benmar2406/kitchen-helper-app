@@ -1,0 +1,17 @@
+.FormContainer {
+  margin: auto;
+  padding: 2rem;
+  text-align: center;
+  display: block;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 600px) {
+  .FormContainer {
+    padding: 0px;
+    width: 90%;
+  }
+}

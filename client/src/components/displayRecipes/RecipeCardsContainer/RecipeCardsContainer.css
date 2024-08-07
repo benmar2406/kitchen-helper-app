@@ -1,0 +1,15 @@
+.RecipeCardsContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 95%;
+  margin: 3rem auto;
+  gap: 1.8rem;
+  }
+
+@media screen and (max-width: 600px) {
+  .RecipeCardsContainer {
+    width: 90%;
+  }
+}
