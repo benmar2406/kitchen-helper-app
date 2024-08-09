@@ -33,7 +33,7 @@ body {
   min-height: 100vh;
   background: 
     linear-gradient(to bottom, rgba(0, 0, 0, 0) 70%, rgba(26, 18, 11, 1) 100%), 
-    url("./src/assets/img/mediterranean-cuisine-g086b4311c_1920.jpg") no-repeat center top;
+    url("./assets/img/cuisine_background.jpg") no-repeat center top;
   background-size: cover;
   background-attachment: fixed;
 }
