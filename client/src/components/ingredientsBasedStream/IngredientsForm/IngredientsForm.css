@@ -37,4 +37,8 @@
     width: 100%;
  }
 
+ .ingredientForm {
+  position: absolute;
+}
+
 }
