@@ -30,7 +30,6 @@
   .IngredientsForm {
     margin-top: 20px;
     padding: 0px;
-    width: 100%;  
   }
   
   .ingredients {
@@ -38,7 +37,4 @@
     width: 100%;
  }
 
- .ingredientForm {
-  width: 90%;
-}
 }
