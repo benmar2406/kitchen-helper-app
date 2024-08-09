@@ -1,8 +1,8 @@
 .SuggestionsList {
   font-family: 'AmaticSC-Regular';  
   font-size: 2.5rem;
-  color: #fff;
-  background: #f0a830;
+  color: #1A120B;
+  background: #E5E5CB;
   width: calc(100% - 40px);
   list-style-type: none;
   padding: 0;
@@ -15,6 +15,8 @@
   transform: translateX(-50%); 
   display: block; 
 }
+
+
 
 .error-message {
   font-family: 'Mono Space AmaticSC-Bold';  

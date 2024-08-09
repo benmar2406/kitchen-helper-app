@@ -29,20 +29,25 @@ function FormContainer(props) {
         onIngredientAdd={props.onIngredientAdd}
         onIngredientDelete={props.onIngredientDelete}
       />
-      {displayDietForm && (
-        <DietForm
-          dietChoice={props.dietChoice}
-          onDietButtonClick ={props.onDietButtonClick}
-          activeButton = {props.activeButton}
-        />
+      {(
+        <div className={`blend-in-wrapper ${displayDietForm ? 'visible' : 'hidden'}`}>
+          <DietForm
+            dietChoice={props.dietChoice}
+            onDietButtonClick ={props.onDietButtonClick}
+            activeButton = {props.activeButton}
+          />
+        </div>
       )}
-      {props.dietChoice !== '' && (
-        <IntolerancesForm
-          onIntolerancesDecisionChange={props.onIntolerancesDecisionChange}
-          intoleranceExisting={props.intoleranceExisting}
-          selectedIntolerances={props.selectedIntolerances}
-          onSelectedIntolerancesChange={props.onSelectedIntolerancesChange}
-        />
+      
+       {(
+        <div className={`blend-in-wrapper ${props.dietChoice !== '' ? 'visible' : 'hidden'}`}> 
+          <IntolerancesForm
+            onIntolerancesDecisionChange={props.onIntolerancesDecisionChange}
+            intoleranceExisting={props.intoleranceExisting}
+            selectedIntolerances={props.selectedIntolerances}
+            onSelectedIntolerancesChange={props.onSelectedIntolerancesChange}
+          />
+        </div>
       )}
     </div>
   );

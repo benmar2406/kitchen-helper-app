@@ -6,7 +6,8 @@
 }
 
 .Suggestion:hover {
-  background-color: #78c0A8;
+  background-color: #647E68;
+  color: #E5E5CB;
 }
 
 @media screen and (max-width: 600px) {

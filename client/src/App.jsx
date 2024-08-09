@@ -3,11 +3,11 @@
   import './App.css';
   import Header from './components/Header/Header'; 
   import RecipeCardsContainer from './components/displayRecipes/RecipeCardsContainer/RecipeCardsContainer';
+  import NoRecipesMessage from './components/displayRecipes/NoRecipesMessage/NoRecipesMessage';
   import FormContainer from './components/ingredientsBasedStream/FormContainer/FormContainer';
   import SubmitButton from './components/SubmitButton/SubmitButton';
   import BackToMenuButton from './components/BackToSettingsButton/BackToSettingsButton';
   import SelectedRecipeDetails from './components/displayRecipes/SelectedRecipeDetails/SelectedRecipeDetails';
-
 
   function App() {
 
@@ -21,7 +21,9 @@
     const submitButtonRef = useRef(null);
     const [recipes, setRecipes] = useState([]);
     const [displayRecipes, setDisplayRecipes] = useState(false);
+    const [noRecipesFound, setNoRecipesFound] = useState();
     const [activeButton, setActiveButton] = useState('');
+  
 
 
 
@@ -129,74 +131,82 @@
           const updatedRecipes = data.results;
           setRecipes(updatedRecipes);
           console.log('Retrieved recipes:', updatedRecipes);
+          setDisplayRecipes(true); // Display recipes
+          setNoRecipesFound(false); 
 
         } else {
             console.log('No recipes found.');
+            setNoRecipesFound(true); // Set noRecipesFound to true if no recipes are found
+            setDisplayRecipes(false);
         }
     } catch (error) {
         console.error('Error fetching recipes:', error);
     }
   }
 
-  //Get recipe with provisioned id.
-
   useEffect(() => {
   if(recipes.length > 0) {
-    setDisplayRecipes(true); //used as condition to render the recipes container
     setReadyForSubmission(false);
-  }}, [recipes])
+  } 
+  }, [recipes])
 
   //render the menu/settings again
   const handleBackToSettingClick = () => {
     setDisplayRecipes(false);
+    setNoRecipesFound(false);
     setReadyForSubmission(true);
   }
 
-
+  //disable no recipe found when an ingredient is changed
+  useEffect(() => {
+     setNoRecipesFound(false);
+  }, [inputValue, dietChoice, ingredients, intoleranceExisting, selectedIntolerances])
 
   return (
-    <Router>
-      <div className="App">
-       
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <div>
-                <Header />
-                {!displayRecipes && 
-                <FormContainer 
-                  inputValue={inputValue}
-                  suggestions={suggestions}
-                  ingredients={ingredients}
-                  onInputChange={handleInputChange}
-                  onIngredientAdd={handleSuggestionClick} 
-                  onIngredientDelete={handleDeleteIngredient} 
-                  dietChoice={dietChoice}
-                  onDietButtonClick = {handleDietButtonClick}
-                  activeButton = {activeButton}
-                  onIntolerancesDecisionChange={handleIntolerancesDecision}
-                  intoleranceExisting={intoleranceExisting}
-                  selectedIntolerances={selectedIntolerances}
-                  onSelectedIntolerancesChange = {handleSelectedIntolerancesChange}
-                />}
-                {readyForSubmission && <SubmitButton ref={submitButtonRef} onSubmitButtonClick={handlerecipesRequest} />}
-                {displayRecipes && <BackToMenuButton onBackToSettingsClick = {handleBackToSettingClick} />}
-                {displayRecipes && <RecipeCardsContainer recipes={recipes}/>}
-                {displayRecipes && <BackToMenuButton onBackToSettingsClick = {handleBackToSettingClick} />}
-              </div>
-            } 
-          />
+    <div className="App">
+      <div className="background-overlay">
+      <Router>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <div>
+                  <Header />
+                  {!displayRecipes && 
+                  <FormContainer 
+                    inputValue={inputValue}
+                    suggestions={suggestions}
+                    ingredients={ingredients}
+                    onInputChange={handleInputChange}
+                    onIngredientAdd={handleSuggestionClick} 
+                    onIngredientDelete={handleDeleteIngredient} 
+                    dietChoice={dietChoice}
+                    onDietButtonClick = {handleDietButtonClick}
+                    activeButton = {activeButton}
+                    onIntolerancesDecisionChange={handleIntolerancesDecision}
+                    intoleranceExisting={intoleranceExisting}
+                    selectedIntolerances={selectedIntolerances}
+                    onSelectedIntolerancesChange = {handleSelectedIntolerancesChange}
+                  />}
+                  {noRecipesFound && <NoRecipesMessage />}
+                  {<SubmitButton ref={submitButtonRef} onSubmitButtonClick={handlerecipesRequest} readyForSubmission={readyForSubmission}/>}
+                  {displayRecipes && <BackToMenuButton onBackToSettingsClick = {handleBackToSettingClick} />}
+                  {displayRecipes && <RecipeCardsContainer recipes={recipes} noRecipesFound = {noRecipesFound} />}
+                  {displayRecipes && <BackToMenuButton onBackToSettingsClick = {handleBackToSettingClick} />}
+                </div>
+              } 
+            />  
 
-          <Route 
-            path="/recipe/:id" 
-            element={
-              <SelectedRecipeDetails />
-            } 
-          />
-        </Routes>
-      </div>
-    </Router>
+            <Route 
+              path="/recipe/:id" 
+              element={
+                <SelectedRecipeDetails />
+              } 
+            />
+          </Routes>
+      </Router>
+    </div>
+    </div>
   );
 }
 

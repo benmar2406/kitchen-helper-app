@@ -5,7 +5,6 @@ import './SelectedRecipeDetails.css';
 function SelectedRecipeDetails(props) {
 
     const { id } = useParams(); 
-
     const [recipeData, setRecipeData] = useState(null);
 
     // Endpoint to get a single recipes details
@@ -47,8 +46,10 @@ function SelectedRecipeDetails(props) {
                 <div className="instructions-container">
                     <hr />
                     <h2 className="instruction-headline">Instructions</h2>
-                    <article className="recipe-instruction">{recipeData.instructions}</article>
-                    
+                    <article
+                        className="recipe-instruction"
+                        dangerouslySetInnerHTML={{ __html: recipeData.instructions }}
+                    />    
                 </div>
             )}
             {recipeData.summary && (

@@ -5,7 +5,7 @@ import IntolerancesCheckboxes from './IntolerancesCheckboxes/IntolerancesCheckbo
 function IntolerancesForm(props) {
 
   return (
-    <div className="IntolerancesForm">
+    <div className="intolerances-form">
       <label>Intolerances?</label><br />
       <button
         className={`toggleButton ${props.intoleranceExisting === true ? 'active' : ''}`}

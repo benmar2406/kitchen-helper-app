@@ -10,7 +10,7 @@ function IntolerancesCheckboxes(props) {
   return (
     <div className="IntolerancesCheckboxes">
       <div className='checkbox'>
-        <label>
+        <label className='intolerance-label'>
           <input 
             type="checkbox" 
             name="allergen" 
@@ -21,7 +21,7 @@ function IntolerancesCheckboxes(props) {
         </label>
       </div>
       <div className='checkbox'>
-        <label>
+        <label className='intolerance-label'>
           <input 
             type="checkbox" 
             name="allergen" 
@@ -32,7 +32,7 @@ function IntolerancesCheckboxes(props) {
         </label>
       </div>
       <div className='checkbox'>
-        <label>
+        <label className='intolerance-label'>
           <input 
             type="checkbox" 
             name="allergen" 
@@ -43,7 +43,7 @@ function IntolerancesCheckboxes(props) {
         </label>
       </div>
       <div className='checkbox'>
-        <label>
+        <label className='intolerance-label'>
           <input 
             type="checkbox" 
             name="allergen" 
@@ -54,7 +54,7 @@ function IntolerancesCheckboxes(props) {
         </label>
       </div>
       <div className='checkbox'>
-        <label>
+        <label className='intolerance-label'>
           <input 
             type="checkbox" 
             name="allergen" 
@@ -65,7 +65,7 @@ function IntolerancesCheckboxes(props) {
         </label>
       </div>
       <div className='checkbox'>
-        <label>
+        <label className='intolerance-label'>
           <input 
             type="checkbox" 
             name="allergen" 
@@ -76,7 +76,7 @@ function IntolerancesCheckboxes(props) {
         </label>
       </div>
       <div className='checkbox'>
-        <label>
+        <label className='intolerance-label'>
           <input 
             type="checkbox" 
             name="allergen" 
@@ -87,7 +87,7 @@ function IntolerancesCheckboxes(props) {
         </label>
       </div>
       <div className='checkbox'>
-        <label>
+        <label className='intolerance-label'>
           <input 
             type="checkbox" 
             name="allergen" 
@@ -98,7 +98,7 @@ function IntolerancesCheckboxes(props) {
         </label>
       </div>
       <div className='checkbox'>
-        <label>
+        <label className='intolerance-label'>
           <input 
             type="checkbox" 
             name="allergen" 

@@ -2,6 +2,9 @@
   width: 50%;
   margin: 0 auto;
   text-align: left;
+  background-color: #E5E5CB;
+  color: #1A120B;
+  padding: 30px;
 }
 
 .recipe-title {
@@ -22,12 +25,11 @@
   margin-top: 20px;;
   margin-bottom: 40px;
   padding: 10px;
-  background-color: #78c0A8;
+  background-color: #D5CEA3;
   border-radius: 30px;
   color: #fff;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-
 
 .ingredients-list {
   list-style-type: none; 
@@ -68,24 +70,26 @@
 
 @media screen and (max-width: 600px) {
   .selected-recipe-details {
-    width: 90%;
+    display: block;
+    width: 100%;
     margin: 0 auto;
-    word-break: break-word; /* or break-all */
+    word-break: break-word; 
+    box-sizing: border-box;
+    height: 100%;
   }
 
   .recipe-title {
     font-size: 2.5rem;
     margin-bottom: 10px;
-  
+    
   }
 
   .instructions-container, .summary-container, .wine-container {
-   width: 95%;
+   width: 94%;
    margin: auto;
+   padding: 0;
    margin-bottom: 30px;
    font-size: 1.3rem;
    line-height: 2rem;
   }
-
-
 }

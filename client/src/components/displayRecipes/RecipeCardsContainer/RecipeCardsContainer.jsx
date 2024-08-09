@@ -10,7 +10,7 @@ function RecipeCardsContainer(props) {
                 <RecipeCard key={id} recipe={recipe} />
         ))}
         </div>
-    );
-}
+
+       )};
 
 export default RecipeCardsContainer;

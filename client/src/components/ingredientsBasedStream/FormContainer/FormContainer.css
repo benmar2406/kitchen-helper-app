@@ -3,7 +3,8 @@
   padding: 2rem;
   text-align: center;
   display: block;
-  width: 100%;
+  width: 50%;
+  min-width: 400px;
   margin: auto;
   text-align: center;
   box-sizing: border-box;
@@ -13,5 +14,6 @@
   .FormContainer {
     padding: 0px;
     width: 90%;
+    min-width: none;
   }
 }
