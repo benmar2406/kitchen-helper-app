@@ -37,8 +37,11 @@ To run the app locally, follow these steps:
 ### Start server and client locally
 - navigate to main directory
 - npm start (Starts both server and client locally)
-  
 
+## Hosting on Render.com
+- project is hosted on [render.com](https://render.com/)
+- project link: https://kitchen-helper-app.onrender.com/
+- **IMPORTANT:** if you click on the project link it may take up to one minute until server functionality is active due to renders' free version limits
   
 
 
