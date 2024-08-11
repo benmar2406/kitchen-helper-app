@@ -8,6 +8,7 @@
   import SubmitButton from './components/SubmitButton/SubmitButton';
   import BackToMenuButton from './components/BackToSettingsButton/BackToSettingsButton';
   import SelectedRecipeDetails from './components/displayRecipes/SelectedRecipeDetails/SelectedRecipeDetails';
+  import Loading from './components/Loading/Loading/';
 
   function App() {
 
@@ -15,18 +16,15 @@
     const [suggestions, setSuggestions] = useState([]);
     const [dietChoice, setDietChoice] = useState('');
     const [ingredients, setIngredients] = useState([]);
-    const [intoleranceExisting, setIntoleranceExisting] = useState(null); //used to display the intolerances checkboxes in case user clicks yes when asked
+    const [intoleranceExisting, setIntoleranceExisting] = useState(null); //bool to display the intolerances checkboxes when user clicks intolerances existing - yes
     const [selectedIntolerances, setSelectedIntolerances] = useState([]); //the array for the actual selected intolerances
     const [readyForSubmission, setReadyForSubmission] = useState(false)
-    const submitButtonRef = useRef(null);
     const [recipes, setRecipes] = useState([]);
     const [displayRecipes, setDisplayRecipes] = useState(false);
     const [noRecipesFound, setNoRecipesFound] = useState();
     const [activeButton, setActiveButton] = useState('');
+    const submitButtonRef = useRef(null);
   
-
-
-
     // Handle input change in IngredientForm
     const handleInputChange = (e) => {
         const value = e.target.value;
@@ -34,7 +32,7 @@
         handleAutocomplete(value);  
     };
 
-    // Get autocomplete suggestions for ingredients via spooancular API
+    // Get autocomplete suggestions for ingredients via spooncular API
     async function handleAutocomplete(query) {
         if (query.length > 1) {
             try {
@@ -126,7 +124,7 @@
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
-        const data = await response.json();
+        const {data, isLoading} = await response.json();
         if (data.totalResults > 0) {
           const updatedRecipes = data.results;
           setRecipes(updatedRecipes);
@@ -150,14 +148,14 @@
   } 
   }, [recipes])
 
-  //render the menu/settings again
+  //render the menu/settings again 
   const handleBackToSettingClick = () => {
     setDisplayRecipes(false);
     setNoRecipesFound(false);
     setReadyForSubmission(true);
   }
 
-  //disable no recipe found when an ingredient is changed
+  //disable "no recipe found" message when an ingredient is changed
   useEffect(() => {
      setNoRecipesFound(false);
   }, [inputValue, dietChoice, ingredients, intoleranceExisting, selectedIntolerances])
@@ -211,4 +209,3 @@
 }
 
 export default App;
-

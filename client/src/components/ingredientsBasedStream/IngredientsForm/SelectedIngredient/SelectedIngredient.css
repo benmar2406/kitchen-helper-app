@@ -3,7 +3,9 @@
   padding: 7px;
   border: 3px solid #78A083;
   border-radius: 30px;
-  box-shadow: 2px 2px 0px 0px #78A083, -2px -2px 0px 0px #78A083
+  box-shadow: 2px 2px 0px 0px #78A083, -2px -2px 0px 0px #78A083;
+  transition: color 0.6s ease, border 0.4s ease, box-shadow 0.6s ease;
+  
 }
 
 .SelectedIngredient:hover {

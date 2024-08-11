@@ -13,3 +13,12 @@
     width: 90%;
   }
 }
+
+@media (min-width: 1920px)  {
+  .RecipeCardsContainer {
+    display:flex;
+    width: 70%;
+    flex-basis: 25%;
+  }
+}
+

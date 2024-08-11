@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import './SelectedRecipeDetails.css';
+import Loading from '../../Loading/Loading'
 
-function SelectedRecipeDetails(props) {
+function SelectedRecipeDetails() {
 
     const { id } = useParams(); 
     const [recipeData, setRecipeData] = useState(null);
@@ -22,15 +23,16 @@ function SelectedRecipeDetails(props) {
     
     useEffect(() => {
         handleRecipeLoad(id); 
-      }, []);
+      }, [id]);
 
      
     if (!recipeData) {
-        return <div>Loading...</div>;
+        return <div>loading ..</div>;
     } 
 
     return (
         <div className="selected-recipe-details">
+            {!recipeData && <Loading />}
             {recipeData.image && (<img className="recipe-img" src={recipeData.image} alt={recipeData.title}  />)}
             {recipeData.title && (<h1 className="recipe-title">{recipeData.title}</h1>)}
             {recipeData.extendedIngredients && (<div className="ingredient-container">
