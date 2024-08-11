@@ -15,7 +15,7 @@ The **Recipe Finder App** is a web application that allows users to search for r
 
 The application consists of two main components:
 
-- **Client**: A front-end built using React that provides a responsive and intuitive interface for users to input ingredients and view recipe results.
+- **Client**: A front-end built using React/Vite that provides a responsive and intuitive interface for users to input ingredients and view recipe results.
 - **Server**: A back-end built using Express, responsible for handling API requests to Spoonacular, processing data, and sending it to the client.
 
 ## Spoonacular API: endpoints used:
@@ -31,12 +31,17 @@ To run the app locally, follow these steps:
 
 - Node.js and npm installed on your machine
 - A Spoonacular API key (you can get one [here](https://spoonacular.com/food-api))
+- navigate to server directory
+- setup your .env file: API_KEY=your_api_key_here
 
 ### Start server and client locally
-- navigate to server directory and setup .env file: API_KEY=your_api_key_here
+- navigate to main directory
 - npm start (Starts both server and client locally)
-  
 
+## Hosting on Render.com
+- project is hosted on [render.com](https://render.com/)
+- project link: https://kitchen-helper-app.onrender.com/
+- **IMPORTANT:** if you click on the project link it may take up to one minute until server functionality is active due to renders' free version limits
   
 
 
