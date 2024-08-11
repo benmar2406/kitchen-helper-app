@@ -24,6 +24,7 @@
     const [noRecipesFound, setNoRecipesFound] = useState();
     const [activeButton, setActiveButton] = useState('');
     const submitButtonRef = useRef(null);
+    const [isLoading, setIsLoading] = useState(false);
   
     // Handle input change in IngredientForm
     const handleInputChange = (e) => {
@@ -81,7 +82,6 @@
         choice === false && setSelectedIntolerances([]);
       };  
     
-    
     //updates intolerances and displays submit button
     const handleSelectedIntolerancesChange = (intolerance) => {
       setSelectedIntolerances((prevSelectedIntolerances) => {
@@ -116,25 +116,26 @@
     const ingredientsParam = ingredients.join(',');
     const intolerancesParam = selectedIntolerances.join(',');
     const dietParam = dietChoice;
-
+    setIsLoading(true);
     const url = `/api/recipes?ingredients=${ingredientsParam}&intolerances=${intolerancesParam}&diet=${dietParam}`;
-    console.log('url:', url);
+
     try {
         const response = await fetch(url);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
-        const {data, isLoading} = await response.json();
+        const data = await response.json();
+        setIsLoading(false);
         if (data.totalResults > 0) {
           const updatedRecipes = data.results;
           setRecipes(updatedRecipes);
           console.log('Retrieved recipes:', updatedRecipes);
-          setDisplayRecipes(true); // Display recipes
+          setDisplayRecipes(true); 
           setNoRecipesFound(false); 
 
         } else {
             console.log('No recipes found.');
-            setNoRecipesFound(true); // Set noRecipesFound to true if no recipes are found
+            setNoRecipesFound(true); 
             setDisplayRecipes(false);
         }
     } catch (error) {
@@ -142,11 +143,14 @@
     }
   }
 
+
   useEffect(() => {
   if(recipes.length > 0) {
     setReadyForSubmission(false);
   } 
   }, [recipes])
+
+
 
   //render the menu/settings again 
   const handleBackToSettingClick = () => {
@@ -170,6 +174,7 @@
               element={
                 <div>
                   <Header />
+                  {isLoading && <Loading />}
                   {!displayRecipes && 
                   <FormContainer 
                     inputValue={inputValue}
