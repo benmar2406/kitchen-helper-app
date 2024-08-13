@@ -11,69 +11,64 @@ const baseUrl = 'https://api.spoonacular.com/'
 
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
+// Middleware for logging requests
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.url}`);
+  next();
+});
+
+// Middleware for error handling
+function errorHandler(err, req, res, next) {
+  console.error(err.stack);
+  if (err.response && err.response.status === 402) {
+    res.status(402).send('API Limit reached');
+  } else {
+    res.status(500).send('Something went wrong');
+  }
+}
+
 // Endpoint to get recipes
-app.get('/api/recipes', async (req, res) => {
+app.get('/api/recipes', async (req, res, next) => {
   const { ingredients, diet, intolerances } = req.query;
   const numberOfResults = 25;
-    const url = `${baseUrl}recipes/complexSearch?apiKey=${apiKey}&includeIngredients=${ingredients}&diet=${diet}&intolerances=${intolerances}&number=${numberOfResults}`;
-
-  const checkIntolerances = (intolerances) => intolerances.length > 0 ? intolerances : "None set";
-  console.log(`Request for receipe list received. \nIngredient query: ${ingredients}. Diet: ${diet}. intolerances: ${checkIntolerances(intolerances)}`);
+  const url = `${baseUrl}recipes/complexSearch?apiKey=${apiKey}&includeIngredients=${ingredients}&diet=${diet}&intolerances=${intolerances}&number=${numberOfResults}`;
 
   try {
     const response = await axios.get(url);
-    console.log("Recipe list received");
-    console.log("Status: " + response.status);
     res.json(response.data);
-    console.log("Response sent to client");
-
   } catch (error) {
-    console.error('Error fetching recipes:', error);
-    if (error.response && error.response.status === 402) {
-      res.status(402).send('API Limit reached');
-    } else {
-      res.status(500).send('Error fetching recipes');
-    }
+    next(error); 
   }
 });
 
-// Endpoint to get a single recipes details
-app.get('/api/recipes/:id', async (req, res) => {
+// Endpoint to get a single recipe's details
+app.get('/api/recipes/:id', async (req, res, next) => {
   const recipeId = req.params.id;
   const url = `${baseUrl}recipes/${recipeId}/information?apiKey=${apiKey}`;
 
-  console.log("Request for receipe id received. Id: " + recipeId);
-  
   try {
     const response = await axios.get(url);
-    console.log("Recipe received.");
-    console.log("Status: " + response.status);
     res.json(response.data);
-    console.log("Response sent to client")
   } catch (error) {
-    console.error('Error fetching recipe details:', error);
-    res.status(500).send('Error fetching recipe details');
+    next(error);
   }
 });
 
-// Endpoint to retrieve autocomplete suggestion
-app.get('/api/autocomplete', async (req, res) => {
+// Endpoint to retrieve autocomplete suggestions
+app.get('/api/autocomplete', async (req, res, next) => {
   const { query } = req.query;  
   const numberOfResults = 5;
   const url = `${baseUrl}food/ingredients/autocomplete?apiKey=${apiKey}&query=${query}&number=${numberOfResults}`;
-  console.log(url);
-
 
   try {
     const response = await axios.get(url);
-    console.log(response);
-    res.json(response.data);  
+    res.json(response.data);
   } catch (error) {
-    console.error('Error fetching autocomplete results:', error);
-    res.status(500).send('Error fetching autocomplete results');
+    next(error);
   }
 });
 
+app.use(errorHandler);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

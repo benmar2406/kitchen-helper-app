@@ -66,7 +66,7 @@
         });
     };
 
-    // Passed to DietForm to update dietChoice
+    // Update dietChoice
     const handleDietChoiceChange = (preference) => {
         setDietChoice(preference);
     };
@@ -82,7 +82,7 @@
         choice === false && setSelectedIntolerances([]);
       };  
     
-    //updates intolerances and displays submit button
+    //update intolerances array 
     const handleSelectedIntolerancesChange = (intolerance) => {
       setSelectedIntolerances((prevSelectedIntolerances) => {
         if (prevSelectedIntolerances.includes(intolerance)) {
@@ -95,7 +95,7 @@
       });
     };
     
-    //displays the button that triggers api call only when all requirements are met
+    //displays the submit button that triggers api call for recipes only when all requirements are met
     useEffect(() => {
       const isReadyForSubmission = dietChoice !== '' && 
         ((intoleranceExisting === true && selectedIntolerances.length > 0) || 
@@ -111,7 +111,7 @@
   }, [readyForSubmission]); 
 
 
-  // Get recipes based on choices
+  // , send request to serve: get recipes based on user choices
   async function handlerecipesRequest() {
     const ingredientsParam = ingredients.join(',');
     const intolerancesParam = selectedIntolerances.join(',');
@@ -150,9 +150,7 @@
   } 
   }, [recipes])
 
-
-
-  //render the menu/settings again 
+  //render the menu/settings again when back to settings button is clicked 
   const handleBackToSettingClick = () => {
     setDisplayRecipes(false);
     setNoRecipesFound(false);
