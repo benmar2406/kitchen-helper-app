@@ -111,7 +111,7 @@
   }, [readyForSubmission]); 
 
 
-  // , send request to serve: get recipes based on user choices
+  //send request to serve: get recipes based on user choices
   async function handlerecipesRequest() {
     const ingredientsParam = ingredients.join(',');
     const intolerancesParam = selectedIntolerances.join(',');
