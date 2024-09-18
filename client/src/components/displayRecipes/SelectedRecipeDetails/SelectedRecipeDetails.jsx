@@ -9,15 +9,15 @@ function SelectedRecipeDetails() {
     const [recipeData, setRecipeData] = useState(null);
 
     // Endpoint to get a single recipes details
-    const handleRecipeLoad = async (reciptId) => {
-        const url = `/api/recipes/${reciptId}`;
+    const handleRecipeLoad = async (recipeId) => {
+        const url = `/api/recipes/${recipeId}`;
         try {
-        const response = await fetch(url);
-        const data = await response.json();
-        setRecipeData(data);
+            const response = await fetch(url);
+            const data = await response.json();
+            setRecipeData(data);
 
         } catch (error) {
-        console.error('Error:', error);
+            console.error('Error:', error);
         }
     }
     
@@ -25,7 +25,6 @@ function SelectedRecipeDetails() {
         handleRecipeLoad(id); 
       }, [id]);
 
-     
     if (!recipeData) {
         return <div>loading ..</div>;
     } 
