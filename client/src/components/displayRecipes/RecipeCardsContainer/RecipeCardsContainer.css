@@ -1,24 +1,22 @@
 .RecipeCardsContainer {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 30px 30px; 
   width: 95%;
   margin: 3rem auto;
-  gap: 1.8rem;
-  }
+  justify-content: center;
+}
+
 
 @media screen and (max-width: 600px) {
   .RecipeCardsContainer {
     width: 90%;
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr)); /* Single card per row on small screens */
   }
 }
 
-@media (min-width: 1920px)  {
+@media (min-width: 1920px) {
   .RecipeCardsContainer {
-    display:flex;
     width: 70%;
-    flex-basis: 25%;
   }
 }
-
