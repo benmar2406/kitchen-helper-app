@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
   gap: 30px 30px; 
-  width: 95%;
+  width: 90%;
   margin: 3rem auto;
   justify-content: center;
 }
