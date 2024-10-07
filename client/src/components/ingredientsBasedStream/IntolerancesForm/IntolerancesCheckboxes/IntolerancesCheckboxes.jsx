@@ -1,14 +1,15 @@
-import './IntolerancesCheckboxes.css'
+import './IntolerancesCheckboxes.css';
 
 function IntolerancesCheckboxes(props) {
-  
+
   const handleCheckboxChange = (event) => {
     const value = event.target.value;
     props.onSelectedIntolerancesChange(value);
   };
   
   return (
-    <div className="IntolerancesCheckboxes">
+    <fieldset className="IntolerancesCheckboxes">
+      <legend>Choose your intolerances</legend>
       <div className='checkbox'>
         <label className='intolerance-label'>
           <input 
@@ -108,8 +109,7 @@ function IntolerancesCheckboxes(props) {
           /> Wheat
         </label>
       </div>
-    </div>
-
+    </fieldset>
   );
 }
 

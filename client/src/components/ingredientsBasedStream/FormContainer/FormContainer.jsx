@@ -8,7 +8,6 @@ function FormContainer(props) {
   const [displayDietForm, setDisplayDietForm] = useState(false);
   const [hasDisplayedDietForm, setHasDisplayedDietForm] = useState(false);
 
-//render the diet form when at least one ingredient is selected but keep on displaying it when user deletes all ingredients
   useEffect(() => {
     if (props.ingredients.length > 0 && !hasDisplayedDietForm) {
       setDisplayDietForm(true);
@@ -18,9 +17,12 @@ function FormContainer(props) {
     }
   }, [props.ingredients, hasDisplayedDietForm]);
 
+  const handleSubmit = (event) => {
+    event.preventDefault(); 
+  };
 
   return (
-    <div className="FormContainer">
+    <form className="FormContainer" onSubmit={handleSubmit} aria-label="This guided form let's you enter your available ingredients and allows to define several other criteria. According to your settings the appropriate recipes will be displayed.">
       <IngredientsForm
         inputValue={props.inputValue}
         suggestions={props.suggestions}
@@ -33,13 +35,12 @@ function FormContainer(props) {
         <div className={`blend-in-wrapper ${displayDietForm ? 'visible' : 'hidden'}`}>
           <DietForm
             dietChoice={props.dietChoice}
-            onDietButtonClick ={props.onDietButtonClick}
-            activeButton = {props.activeButton}
+            onDietButtonClick={props.onDietButtonClick}
+            activeButton={props.activeButton}
           />
         </div>
       )}
-      
-       {(
+      {(
         <div className={`blend-in-wrapper ${props.dietChoice !== '' ? 'visible' : 'hidden'}`}> 
           <IntolerancesForm
             onIntolerancesDecisionChange={props.onIntolerancesDecisionChange}
@@ -49,7 +50,7 @@ function FormContainer(props) {
           />
         </div>
       )}
-    </div>
+    </form>
   );
 }
 
