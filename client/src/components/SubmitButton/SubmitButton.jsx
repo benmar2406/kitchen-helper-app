@@ -1,18 +1,20 @@
     import './SubmitButton.css';
 
-    function SubmitButton(props) {
+    import React, { forwardRef } from 'react';
+
+    const SubmitButton = forwardRef(({ onSubmitButtonClick, readyForSubmission }, ref) => {
 
         return (
-            <div className={`blend-in-wrapper ${props.readyForSubmission ? 'visible' : 'hidden'}`}>
+            <div className={`blend-in-wrapper ${readyForSubmission ? 'visible' : 'hidden'}`}>
             <div className="submitBox">
                 <button 
                     className='SubmitButton'
-                    onClick={props.onSubmitButtonClick}
+                    onClick={onSubmitButtonClick}
                 >Get recipes
                 </button>
             </div>
             </div>
         );
-    }
+    })
 
     export default SubmitButton;

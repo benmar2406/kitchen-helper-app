@@ -1,56 +1,108 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext, useRef } from 'react';
+import { FormContext } from '../../../context/FormContext';
+import { RecipesContext } from '../../../context/RecipesContext';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './FormContainer.css';
 import IngredientsForm from '../IngredientsForm/IngredientsForm';
 import DietForm from '../DietForm/DietForm';
 import IntolerancesForm from '../IntolerancesForm/IntolerancesForm';
+import SubmitButton from '../../SubmitButton/SubmitButton';
 
-function FormContainer(props) {
+
+function FormContainer() {
+
+  const location = useLocation();  
+  const submitButtonRef = useRef()
+  const navigate = useNavigate(); 
   const [displayDietForm, setDisplayDietForm] = useState(false);
   const [hasDisplayedDietForm, setHasDisplayedDietForm] = useState(false);
 
-  useEffect(() => {
-    if (props.ingredients.length > 0 && !hasDisplayedDietForm) {
-      setDisplayDietForm(true);
-      setHasDisplayedDietForm(true);
-    } else if (props.ingredients.length > 0) {
-      setDisplayDietForm(true);
+  const { 
+    ingredients, 
+    selectedIntolerances, 
+    intoleranceExisting, 
+    dietChoice, 
+    readyForSubmission, 
+    setReadyForSubmission, 
+    noRecipesFound, 
+    setNoRecipesFound
     }
-  }, [props.ingredients, hasDisplayedDietForm]);
+  = useContext(FormContext); 
+
 
   const handleSubmit = (event) => {
-    event.preventDefault(); 
+    event.preventDefault();
+    if (readyForSubmission) {
+      navigate('/recipes', {
+        state: {
+          ingredients, 
+          selectedIntolerances, 
+          dietChoice,
+        }
+      });
+    }
   };
+  
+  useEffect(() => {
+    if (ingredients.length > 0 && !hasDisplayedDietForm) {
+      setDisplayDietForm(true);
+      setHasDisplayedDietForm(true);
+    } else if (ingredients.length > 0) {
+      setDisplayDietForm(true);
+    }
+  }, [ingredients, hasDisplayedDietForm]);
+
+    //displays the submit button that triggers api call for recipes only when all requirements are met or when user clicks from recipes back to settings
+    useEffect(() => {
+      
+        const isReadyForSubmission = dietChoice !== '' && 
+          ((intoleranceExisting === true && selectedIntolerances.length > 0) || 
+          (intoleranceExisting === false)) && 
+          ingredients.length > 0;
+        setReadyForSubmission(isReadyForSubmission);
+  
+    }, [dietChoice, intoleranceExisting, selectedIntolerances, ingredients, setReadyForSubmission]);
+  
+      useEffect(() => {
+        if (readyForSubmission && submitButtonRef.current) {
+          submitButtonRef.current.scrollIntoView({
+            behavior: 'smooth',  
+            block: 'center',     
+          })
+        }}, [readyForSubmission])
+      
+
+
+
+  //disable "no recipe found" message when an ingredient is changed
+  useEffect(() => {
+    setNoRecipesFound(false);
+  }, [ dietChoice, ingredients, intoleranceExisting, selectedIntolerances])
+
+
 
   return (
-    <form className="FormContainer" onSubmit={handleSubmit} aria-label="This guided form let's you enter your available ingredients and allows to define several other criteria. According to your settings the appropriate recipes will be displayed.">
-      <IngredientsForm
-        inputValue={props.inputValue}
-        suggestions={props.suggestions}
-        ingredients={props.ingredients}
-        onInputChange={props.onInputChange}
-        onIngredientAdd={props.onIngredientAdd}
-        onIngredientDelete={props.onIngredientDelete}
-      />
-      {(
-        <div className={`blend-in-wrapper ${displayDietForm ? 'visible' : 'hidden'}`}>
+    <>
+      <form className="FormContainer" onSubmit={handleSubmit}>
+        <IngredientsForm ingredients={ingredients} />
+        <div 
+          className={`blend-in-wrapper ${displayDietForm ? 'visible' : 'hidden'}`}
+          ingredients={ingredients}
+          >
           <DietForm
-            dietChoice={props.dietChoice}
-            onDietButtonClick={props.onDietButtonClick}
-            activeButton={props.activeButton}
+            dietChoice={dietChoice}
           />
         </div>
-      )}
-      {(
-        <div className={`blend-in-wrapper ${props.dietChoice !== '' ? 'visible' : 'hidden'}`}> 
-          <IntolerancesForm
-            onIntolerancesDecisionChange={props.onIntolerancesDecisionChange}
-            intoleranceExisting={props.intoleranceExisting}
-            selectedIntolerances={props.selectedIntolerances}
-            onSelectedIntolerancesChange={props.onSelectedIntolerancesChange}
-          />
+        <div className={`blend-in-wrapper ${dietChoice !== '' ? 'visible' : 'hidden'}`}>
+          <IntolerancesForm/>
         </div>
-      )}
-    </form>
+        <SubmitButton 
+            ref={submitButtonRef} 
+            onSubmitButtonClick={handleSubmit} 
+            readyForSubmission={readyForSubmission}/>
+        {noRecipesFound && <NoRecipesMessage />}
+      </form>
+    </>
   );
 }
 

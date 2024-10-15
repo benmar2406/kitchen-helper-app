@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import './SelectedRecipeDetails.css';
 import Loading from '../../Loading/Loading'
+import BackButton from '../../BackButton/BackButton'
 
 function SelectedRecipeDetails() {
 
@@ -70,6 +71,7 @@ function SelectedRecipeDetails() {
                     <article id="wine-pairing">{recipeData.winePairing.pairingText}</article>
                 </div>
             )}
+            <BackButton />
         </div>
     );
 }
