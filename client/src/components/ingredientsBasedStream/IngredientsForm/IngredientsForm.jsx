@@ -54,7 +54,7 @@ function IngredientsForm({ ingredients }) {
           <input
             type="text"
             id="ingredients"
-            className='ingredients'
+            className='ingredients-input'
             name="ingredients"
             placeholder="Enter your existing ingredients..."
             value={inputValue}

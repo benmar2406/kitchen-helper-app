@@ -5,8 +5,8 @@
   width: 90%;
   }
 
-.ingredients {
-  margin-top: 10px;
+.ingredients-input {
+  margin-top: 0.9rem;
   height: 4rem; 
   text-decoration: none;
   border: 0;
@@ -23,6 +23,7 @@
   width: 90%;
   margin: auto;
   box-sizing: border-box;
+  margin-bottom: 3vh;
 }
 
 
@@ -33,7 +34,7 @@
     width: 100%;  
   }
   
-  .ingredients {
+  .ingredients-input {
     padding: 0px;
     width: 100%;
  }
