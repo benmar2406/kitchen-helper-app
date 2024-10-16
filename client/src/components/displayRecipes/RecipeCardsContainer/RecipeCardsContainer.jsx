@@ -5,7 +5,8 @@ import { RecipesContext } from '../../../context/RecipesContext';
 import './RecipeCardsContainer.css';
 import RecipeCard from '../RecipeCard/RecipeCard';
 import BackButton from '../../BackButton/BackButton';
-import NoRecipesMessage from '../NoRecipesMessage/NoRecipesMessage';
+import NoRecipesMessage from '../Messages/NoRecipesMessage';
+import RequestErrorMessage from '../Messages/RequestErrorMessage';
 import Loading from '../../Loading/Loading';
 
 
@@ -26,15 +27,17 @@ const fetchRecipes = async ({ ingredients, selectedIntolerances, dietChoice }) =
   };
 
 function RecipeCardsContainer() {
+
     const navigate = useNavigate(); 
     const { state } = useLocation();  
+
     const { ingredients, selectedIntolerances, dietChoice } = state || {};
 
-
-    const [requestCompleted, setRequestCompleted] = useState(false)
-    
     const { recipes, setRecipes } = useContext(RecipesContext); 
 
+    const [requestCompleted, setRequestCompleted] = useState(false)
+
+    
     const { isLoading, isError, data } = useQuery(
         ['recipes', { ingredients, selectedIntolerances, dietChoice }],
         () => fetchRecipes({ ingredients, selectedIntolerances, dietChoice }),
@@ -52,24 +55,23 @@ function RecipeCardsContainer() {
 
     //render the menu/settings again when back to settings button is clicked 
     const handleBackToSettingClick = () => {
-
-        navigate('/', {
-            
-          });
+        navigate('/')
     }
 
     return (
         <>
             {isLoading && <Loading />}
+            {isError && <RequestErrorMessage />}
             {recipes.length > 8 && <BackButton onClick={handleBackToSettingClick} />}
+            
             <div className='RecipeCardsContainer'>
-            {requestCompleted && data.length > 0 ? (
-                recipes.map((recipe, id) => (
-                <RecipeCard key={id} recipe={recipe} />
-                ))
-            ) : (
-                requestCompleted && <NoRecipesMessage />
-            )}
+                {requestCompleted && data.length > 0 ? (
+                    recipes.map((recipe, id) => (
+                    <RecipeCard key={id} recipe={recipe} />
+                    ))
+                ) : (
+                    requestCompleted && <NoRecipesMessage />
+                )}
             </div>
             <BackButton onClick={handleBackToSettingClick} />
         </>

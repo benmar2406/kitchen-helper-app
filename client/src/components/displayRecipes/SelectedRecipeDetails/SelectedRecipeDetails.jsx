@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import './SelectedRecipeDetails.css';
 import Loading from '../../Loading/Loading'
-import BackButton from '../../BackButton/BackButton'
+import BackToRecipesButton from '../BackToRecipesButton/BackToRecipesButton'
 
 function SelectedRecipeDetails() {
 
+    const navigate = useNavigate(); 
+    
     const { id } = useParams(); 
     const [recipeData, setRecipeData] = useState(null);
 
@@ -30,8 +32,13 @@ function SelectedRecipeDetails() {
         return <div>loading ..</div>;
     } 
 
+    const handleBacktoRecipesClick = () => {
+        navigate(-1);
+    }
+
     return (
         <div className="selected-recipe-details">
+            <BackToRecipesButton onClick={handleBacktoRecipesClick} />
             {!recipeData && <Loading />}
             {recipeData.image && (<img className="recipe-img" src={recipeData.image} alt={recipeData.title}  />)}
             {recipeData.title && (<h1 className="recipe-title">{recipeData.title}</h1>)}
@@ -71,7 +78,7 @@ function SelectedRecipeDetails() {
                     <article id="wine-pairing">{recipeData.winePairing.pairingText}</article>
                 </div>
             )}
-            <BackButton />
+            <BackToRecipesButton onClick={handleBacktoRecipesClick} />
         </div>
     );
 }

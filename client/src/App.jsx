@@ -2,7 +2,6 @@
   import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
   import { FormProvider } from './context/FormContext';
   import { RecipesProvider } from './context/RecipesContext';
-  import { useNavigate } from 'react-router-dom';
   import './App.css';
   import Header from './components/Header/Header'; 
   import FormContainer from './components/ingredientsBasedStream/FormContainer/FormContainer';
