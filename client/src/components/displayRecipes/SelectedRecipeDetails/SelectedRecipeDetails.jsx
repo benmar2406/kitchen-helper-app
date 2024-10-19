@@ -28,6 +28,7 @@ function SelectedRecipeDetails() {
     useEffect(() => {
         handleRecipeLoad(id); 
       }, [id]);
+      
 
     if (!recipeData) {
         return <Loading />;
