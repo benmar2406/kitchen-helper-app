@@ -17,6 +17,7 @@ function SelectedRecipeDetails() {
         try {
             const response = await fetch(url);
             const data = await response.json();
+            localStorage.setItem(`recipe-${recipeId}`, JSON.stringify(data)); // Save to localStorage
             setRecipeData(data);
 
         } catch (error) {
@@ -29,7 +30,7 @@ function SelectedRecipeDetails() {
       }, [id]);
 
     if (!recipeData) {
-        return <div>loading ..</div>;
+        return <Loading />;
     } 
 
     const handleBacktoRecipesClick = () => {
