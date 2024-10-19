@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import DOMPurify from "dompurify";
 import './SelectedRecipeDetails.css';
 import Loading from '../../Loading/Loading'
 import BackToRecipesButton from '../BackToRecipesButton/BackToRecipesButton'
@@ -28,7 +29,7 @@ function SelectedRecipeDetails() {
     useEffect(() => {
         handleRecipeLoad(id); 
       }, [id]);
-      
+
 
     if (!recipeData) {
         return <Loading />;
@@ -37,6 +38,10 @@ function SelectedRecipeDetails() {
     const handleBacktoRecipesClick = () => {
         navigate(-1);
     }
+
+    const instructionsSanitized = DOMPurify.sanitize(recipeData.instructions);
+    const summarySanitized = DOMPurify.sanitize(recipeData.summary);
+
 
     return (
         <div className="selected-recipe-details">
@@ -59,7 +64,7 @@ function SelectedRecipeDetails() {
                     <h2 className="instruction-headline">Instructions</h2>
                     <article
                         className="recipe-instruction"
-                        dangerouslySetInnerHTML={{ __html: recipeData.instructions }}
+                        dangerouslySetInnerHTML={{ __html: instructionsSanitized }}
                     />    
                 </div>
             )}
@@ -69,7 +74,7 @@ function SelectedRecipeDetails() {
                 <h2 className="summary-headline">Additional information</h2>
                     <article 
                         className="summary-text"
-                        dangerouslySetInnerHTML={{ __html: recipeData.summary }}
+                        dangerouslySetInnerHTML={{ __html: summarySanitized }}
                     />
                 </div>
             )}
