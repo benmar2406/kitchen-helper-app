@@ -45,8 +45,6 @@ function RecipeCardsContainer() {
           enabled: !!ingredients,
           onSuccess: (data) => {
             setRecipes(data);
-            console.log('API response:', data);  
-            setRecipes(data);
             setRequestCompleted(true)
           },        
         }

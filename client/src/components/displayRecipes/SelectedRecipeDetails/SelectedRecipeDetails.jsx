@@ -36,10 +36,6 @@ function SelectedRecipeDetails() {
         return <Loading />;
     } 
 
-    const instructionsSanitized = DOMPurify.sanitize(recipeData.instructions);
-    const summarySanitized = DOMPurify.sanitize(recipeData.summary);
-
-
     return (
         <div className="selected-recipe-details">
             <BackToRecipesButton onClick={() => navigate(-1)} />
@@ -59,14 +55,14 @@ function SelectedRecipeDetails() {
                 <div className="instructions-container">
                     <hr />
                     <h2 className="instruction-headline">Instructions</h2>
-                    <article className="recipe-instruction">{parse(instructionsSanitized)}</article>    
+                    <article className="recipe-instruction">{parse(DOMPurify.sanitize(recipeData.instructions))}</article>    
                 </div>
             )}
             {recipeData.summary && (
                 <div className="summary-container">
                 <hr />
                 <h2 className="summary-headline">Additional information</h2>
-                    <article className="summary-text">{parse(summarySanitized)}</article> 
+                    <article className="summary-text">{parse(DOMPurify.sanitize(recipeData.summary))}</article> 
                 </div>
             )}
             {recipeData.winePairing && recipeData.winePairing.pairingText && (

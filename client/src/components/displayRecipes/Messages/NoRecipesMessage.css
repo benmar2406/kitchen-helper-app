@@ -1,10 +1,10 @@
   .no-recipes-mesage {
-    margin: 40px auto;
-    margin-top: 0;
+    margin: auto;
+    margin-top: 20vh;
+    margin-bottom: 5vh;
     font-family: 'AmaticSC-Bold';
     color: #E5E5CB;
     font-size: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 90vw;
+    text-align: center;
   }
