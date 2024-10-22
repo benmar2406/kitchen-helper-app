@@ -1,7 +1,6 @@
 const express = require('express');
 const axios = require('axios');
 const path = require('path');
-const fs = require('fs');
 require('dotenv').config(); 
 
 const app = express();
@@ -19,11 +18,14 @@ app.use((req, res, next) => {
 
 // Middleware for error handling
 function errorHandler(err, req, res, next) {
-  console.error(err.stack);
+  console.error(`Error occurred: ${err.message}`);
+  console.error(`Stack trace: ${err.stack}`);
+  console.error(`Request URL: ${req.url}`);
+  console.error(`Response Status Code: ${res.statusCode}`);
   if (err.response && err.response.status === 402) {
-    res.status(402).send('API Limit reached');
+    res.status(402).send('API Limit reached, try again later');
   } else {
-    res.status(500).send('Something went wrong');
+    res.status(500).send('Something went wrong, try again later');
   }
 }
 
