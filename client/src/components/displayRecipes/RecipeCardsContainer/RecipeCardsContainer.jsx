@@ -32,12 +32,13 @@ function RecipeCardsContainer() {
     const { state } = useLocation();  
 
     const { ingredients, selectedIntolerances, dietChoice } = state || {};
-
+    
     const { recipes, setRecipes } = useContext(RecipesContext); 
 
     const [requestCompleted, setRequestCompleted] = useState(false)
 
-    
+    const { search } = useLocation();
+
     const { isLoading, isError, data } = useQuery(
         ['recipes', { ingredients, selectedIntolerances, dietChoice }],
         () => fetchRecipes({ ingredients, selectedIntolerances, dietChoice }),
@@ -45,8 +46,10 @@ function RecipeCardsContainer() {
           enabled: !!ingredients,
           onSuccess: (data) => {
             setRecipes(data);
-            setRequestCompleted(true)
-          },        
+            setRequestCompleted(true);
+            const id = Math.floor(1000 + Math.random() * 9000);
+            localStorage.setItem('recipes-data-' + id, JSON.stringify(data));
+          },
         }
       );
 

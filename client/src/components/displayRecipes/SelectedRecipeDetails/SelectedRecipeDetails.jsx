@@ -19,7 +19,6 @@ function SelectedRecipeDetails() {
         try {
             const response = await fetch(url);
             const data = await response.json();
-            localStorage.setItem(`recipe-${recipeId}`, JSON.stringify(data)); 
             setRecipeData(data);
 
         } catch (error) {
