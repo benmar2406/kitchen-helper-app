@@ -11,7 +11,7 @@ The **Recipe Finder App** is a web application that allows users to search for r
 - User-friendly interface
 - Support for various diets and dietary preferences
 
-## Architecture
+## Architecture: Client-Server
 
 The application consists of two main components:
 

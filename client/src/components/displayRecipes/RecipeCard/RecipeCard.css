@@ -1,3 +1,13 @@
+.recipeCardWrapper {
+  min-width: 290px;
+  width: 100%; 
+  overflow: hidden;
+  border-radius: 8px;
+  height: 360px;
+  margin: 0;
+  perspective: 800px; 
+}
+
 .recipeCard {
   min-width: 290px;
   width: 100%; 

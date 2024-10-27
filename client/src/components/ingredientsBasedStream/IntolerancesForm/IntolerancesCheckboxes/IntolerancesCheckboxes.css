@@ -24,13 +24,21 @@
   font-size: 1.3rem;
 }
 
+.checkbox-input {
+  margin-right: 9px;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 600px) {
   .IntolerancesCheckboxes {
-    width: 90%;
+    width: 100%;
+    justify-content: flex-start;
   }
 
   .checkbox{
-    width: 40%;
-    padding: 0.5rem;
+    width: 42%;
+    padding: 0.4rem;
+
   }
+
 }
