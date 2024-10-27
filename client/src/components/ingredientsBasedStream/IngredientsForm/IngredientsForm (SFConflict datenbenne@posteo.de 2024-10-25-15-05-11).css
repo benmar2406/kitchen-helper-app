@@ -1,0 +1,45 @@
+.IngredientsForm {
+  margin: auto;
+  margin-bottom: 40px;
+  text-align: center;
+  width: 90%;
+  }
+
+.ingredients-input {
+  margin-top: 0.9rem;
+  height: 4rem; 
+  text-decoration: none;
+  border: 0;
+  border-radius: 25px;
+  text-align: center;
+  font-size: 1rem;
+  background-color:#E5E5CB;
+  color: #1A120B;
+  width: 100%;
+} 
+
+.ingredientForm {
+  position: relative;
+  width: 90%;
+  margin: auto;
+  box-sizing: border-box;
+  margin-bottom: 3vh;
+}
+
+
+@media screen and (max-width: 800px) {
+  .IngredientsForm {
+    margin-top: 20px;
+    padding: 0px;
+    width: 100%;  
+  }
+  
+  .ingredients-input {
+    padding: 0px;
+    width: 100%;
+ }
+
+ .ingredientForm {
+  width: 90%;
+}
+}

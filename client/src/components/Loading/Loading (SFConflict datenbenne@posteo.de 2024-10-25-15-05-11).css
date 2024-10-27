@@ -1,0 +1,18 @@
+.loading-container {
+  height: 50vh;
+  font-family: 'AmaticSC-Bold';
+  font-size: 3rem;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.loading-spinner {
+  margin: 40px auto;
+  width: 30%;
+  text-align: center;
+  height: auto;
+}
