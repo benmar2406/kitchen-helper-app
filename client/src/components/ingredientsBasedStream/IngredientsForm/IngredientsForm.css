@@ -1,9 +1,4 @@
-.IngredientsForm {
-  margin: auto;
-  margin-bottom: 40px;
-  text-align: center;
-  width: 90%;
-  }
+
 
 .ingredients-input {
   margin-top: 0.9rem;
@@ -23,7 +18,10 @@
   width: 90%;
   margin: auto;
   box-sizing: border-box;
-  margin-bottom: 3vh;
+}
+
+.ingredientForm label {
+ line-height: 2.2rem; 
 }
 
 
