@@ -17,12 +17,6 @@ const useGetSelectedRecipe = (id) => {
 const { isLoading, isError, data: recipeData } = useQuery(
   ['recipe', id], 
   () => fetchSelectedRecipe(id), 
-  {
-      onSuccess: (data) => {
-          const storageId = Math.floor(1000 + Math.random() * 9000);
-          localStorage.setItem('recipes-data-' + storageId, JSON.stringify(data));
-      },
-  }
 );
   
   return { isLoading, isError, recipeData }

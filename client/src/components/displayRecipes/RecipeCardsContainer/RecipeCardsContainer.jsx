@@ -39,7 +39,7 @@ function RecipeCardsContainer() {
                     requestCompleted && <NoRecipesMessage />
                 )}
             </div>
-            <BackButton onClick={handleBackToSettingClick} />
+            <BackButton onClick={(handleBackToSettingClick)} />
         </>
         );
     }
