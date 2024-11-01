@@ -4,7 +4,7 @@ import './DietForm.css';
 
 function DietForm() {
 
-  const { dietChoice, setDietChoice}  = useContext(FormContext);
+  const { setDietChoice}  = useContext(FormContext);
   const { activeButton, setActiveButton } = useContext(FormContext);
 
 
