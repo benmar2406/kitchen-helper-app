@@ -1,57 +1,22 @@
-import React, { useContext, useState } from 'react';
-import { useQuery } from 'react-query';
+import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { RecipesContext } from '../../../context/RecipesContext';
 import './RecipeCardsContainer.css';
 import RecipeCard from '../RecipeCard/RecipeCard';
 import BackButton from '../../BackButton/BackButton';
 import NoRecipesMessage from '../Messages/NoRecipesMessage';
 import RequestErrorMessage from '../Messages/RequestErrorMessage';
 import Loading from '../../Loading/Loading';
+import useGetRecipes from '../../../hooks/useGetRecipes'
 
-
-// fetch recipes request
-const fetchRecipes = async ({ ingredients, selectedIntolerances, dietChoice }) => {
-    const ingredientsParam = ingredients.join(',');
-    const intolerancesParam = selectedIntolerances.join(',');
-    const dietParam = dietChoice;
-    const url = `/api/recipes?ingredients=${ingredientsParam}&intolerances=${intolerancesParam}&diet=${dietParam}`;
-  
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-  
-    const data = await response.json();
-    return data.results;
-  };
 
 function RecipeCardsContainer() {
 
     const navigate = useNavigate(); 
     const { state } = useLocation();  
-
     const { ingredients, selectedIntolerances, dietChoice } = state || {};
-    
-    const { recipes, setRecipes } = useContext(RecipesContext); 
 
-    const [requestCompleted, setRequestCompleted] = useState(false)
 
-    const { search } = useLocation();
-
-    const { isLoading, isError, data } = useQuery(
-        ['recipes', { ingredients, selectedIntolerances, dietChoice }],
-        () => fetchRecipes({ ingredients, selectedIntolerances, dietChoice }),
-        {
-          enabled: !!ingredients,
-          onSuccess: (data) => {
-            setRecipes(data);
-            setRequestCompleted(true);
-            const id = Math.floor(1000 + Math.random() * 9000);
-            localStorage.setItem('recipes-data-' + id, JSON.stringify(data));
-          },
-        }
-      );
+    const { data, recipes, requestCompleted, isLoading, isError } = useGetRecipes(ingredients, selectedIntolerances, dietChoice);
 
 
     //render the menu/settings again when back to settings button is clicked 
