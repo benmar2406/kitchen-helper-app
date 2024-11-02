@@ -16,7 +16,9 @@ function SuggestionsList() {
     };
 
     return (
-            <ul className="SelectedIngredientsList">
+            <ul 
+                className="SelectedIngredientsList"
+                role='presentation'>
                 {ingredients.map((ingredient, id) => (
                     <SelectedIngredient key={id} ingredient={ingredient} onClick={handleDeleteIngredient}/>
                 ))}

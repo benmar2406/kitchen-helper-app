@@ -10,7 +10,7 @@ function IntolerancesCheckboxes(props) {
   return (
     <fieldset className="IntolerancesCheckboxes">
       <legend>Choose your intolerances</legend>
-      <div className='checkbox'>
+      <div role='form' className='checkbox'>
         <label className='intolerance-label'>
           <input 
             type="checkbox" 
