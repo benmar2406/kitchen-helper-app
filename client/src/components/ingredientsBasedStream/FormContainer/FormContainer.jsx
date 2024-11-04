@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext, useRef } from 'react';
 import { FormContext } from '../../../context/FormContext';
-import { RecipesContext } from '../../../context/RecipesContext';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './FormContainer.css';
 import IngredientsForm from '../IngredientsForm/IngredientsForm';
 import DietForm from '../DietForm/DietForm';
@@ -11,7 +10,6 @@ import SubmitButton from '../../SubmitButton/SubmitButton';
 
 function FormContainer() {
 
-  const location = useLocation();  
   const submitButtonRef = useRef()
   const navigate = useNavigate(); 
   const [displayDietForm, setDisplayDietForm] = useState(false);

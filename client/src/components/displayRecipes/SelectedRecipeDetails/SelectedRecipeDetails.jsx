@@ -5,7 +5,6 @@ import parse from 'html-react-parser';
 import './SelectedRecipeDetails.css';
 import Loading from '../../Loading/Loading';
 import BackToRecipesButton from '../BackToRecipesButton/BackToRecipesButton';
-import { useQuery } from 'react-query';
 import RequestErrorMessage from '../Messages/RequestErrorMessage';
 import useGetSelectedRecipeDetails from '../../../hooks/useGetSelectedRecipeDetails';
 

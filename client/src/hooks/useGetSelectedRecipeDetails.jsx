@@ -4,7 +4,7 @@ const useGetSelectedRecipe = (id) => {
   
   const fetchSelectedRecipe = async (id) => {
     const url = `/api/recipes/${id}`;
-    const response = await fetch(url);
+    const response = await fetch(url);  
     if (!response.ok) {
         throw new Error('Failed to fetch recipe data');
     }
