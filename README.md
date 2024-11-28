@@ -29,7 +29,7 @@ To run the app locally, follow these steps:
 
 ### Prerequisites
 
-- Node.js and npm installed on your machine
+- Node.js and npm installed 
 - A Spoonacular API key (you can get one [here](https://spoonacular.com/food-api))
 - navigate to server directory
 - setup your .env file: API_KEY=your_api_key_here
