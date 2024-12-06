@@ -170,7 +170,7 @@
             <Route
               path="/"
               element={
-                <>
+                <div>
                   <Header />
                   {isLoading && <Loading />}
                   {!displayRecipes && 
@@ -190,11 +190,11 @@
                     onSelectedIntolerancesChange = {handleSelectedIntolerancesChange}
                   />}
                   {noRecipesFound && <NoRecipesMessage />}
-                  {<SubmitButton  onSubmitButtonClick={handlerecipesRequest} readyForSubmission={readyForSubmission}/>}
+                  {<SubmitButton ref={submitButtonRef} onSubmitButtonClick={handlerecipesRequest} readyForSubmission={readyForSubmission}/>}
                   {displayRecipes && <BackToMenuButton onBackToSettingsClick = {handleBackToSettingClick} />}
                   {displayRecipes && <RecipeCardsContainer recipes={recipes} noRecipesFound = {noRecipesFound} />}
                   {displayRecipes && <BackToMenuButton onBackToSettingsClick = {handleBackToSettingClick} />}
-                </>
+                </div>
               } 
             />  
 

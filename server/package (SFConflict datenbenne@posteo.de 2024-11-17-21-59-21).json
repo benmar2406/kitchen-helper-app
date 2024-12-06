@@ -1,0 +1,16 @@
+{
+  "name": "kitchen-helper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "axios": "^1.7.7",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
+  },
+  "author": "",
+  "license": "ISC"
+}

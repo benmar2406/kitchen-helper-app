@@ -1,0 +1,10 @@
+  .error-message {
+    margin: 40px auto;
+    margin-top: 0;
+    font-family: 'AmaticSC-Bold';
+    color: #E5E5CB;
+    font-size: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
