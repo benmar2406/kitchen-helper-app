@@ -1,7 +1,6 @@
 const express = require('express');
 const axios = require('axios');
 const path = require('path');
-const fs = require('fs');
 require('dotenv').config(); 
 
 const app = express();
@@ -11,21 +10,28 @@ const baseUrl = 'https://api.spoonacular.com/'
 
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
-// Middleware for logging requests
 app.use((req, res, next) => {
   console.log(`${req.method} ${req.url}`);
   next();
 });
 
-// Middleware for error handling
 function errorHandler(err, req, res, next) {
-  console.error(err.stack);
-  if (err.response && err.response.status === 402) {
-    res.status(402).send('API Limit reached');
+  console.error(`Error occurred: ${err.message}`);
+  console.error(`Stack trace: ${err.stack}`);
+  console.error(`Request URL: ${req.url}`);
+
+  if (err.response && err.response.status) {
+    res.status(err.response.status);
+    if (err.response.status === 402) {
+      res.send('API Limit reached, try again later');
+    } else {
+      res.send(`Error ${err.response.status}: ${err.response.data.message || 'An error occurred'}`);
+    }
   } else {
-    res.status(500).send('Something went wrong');
+    res.status(500).send('Something went wrong, try again later');
   }
 }
+
 
 // Endpoint to get recipes
 app.get('/api/recipes', async (req, res, next) => {
@@ -69,6 +75,10 @@ app.get('/api/autocomplete', async (req, res, next) => {
 });
 
 app.use(errorHandler);
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

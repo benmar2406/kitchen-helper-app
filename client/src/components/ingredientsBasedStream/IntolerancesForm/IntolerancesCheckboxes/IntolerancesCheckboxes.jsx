@@ -10,10 +10,11 @@ function IntolerancesCheckboxes(props) {
   return (
     <fieldset className="IntolerancesCheckboxes">
       <legend>Choose your intolerances</legend>
-      <div className='checkbox'>
+      <div role='form' className='checkbox'>
         <label className='intolerance-label'>
           <input 
             type="checkbox" 
+            className='checkbox-input'
             name="allergen" 
             value="Dairy" 
             onChange={handleCheckboxChange}
@@ -25,6 +26,7 @@ function IntolerancesCheckboxes(props) {
         <label className='intolerance-label'>
           <input 
             type="checkbox" 
+            className='checkbox-input'
             name="allergen" 
             value="Egg" 
             onChange={handleCheckboxChange}
@@ -36,6 +38,7 @@ function IntolerancesCheckboxes(props) {
         <label className='intolerance-label'>
           <input 
             type="checkbox" 
+            className='checkbox-input'
             name="allergen" 
             value="Gluten" 
             onChange={handleCheckboxChange}
@@ -47,6 +50,7 @@ function IntolerancesCheckboxes(props) {
         <label className='intolerance-label'>
           <input 
             type="checkbox" 
+            className='checkbox-input'
             name="allergen" 
             value="Grain" 
             onChange={handleCheckboxChange}
@@ -58,6 +62,7 @@ function IntolerancesCheckboxes(props) {
         <label className='intolerance-label'>
           <input 
             type="checkbox" 
+            className='checkbox-input'
             name="allergen" 
             value="Peanut"
             onChange={handleCheckboxChange}
@@ -68,7 +73,8 @@ function IntolerancesCheckboxes(props) {
       <div className='checkbox'>
         <label className='intolerance-label'>
           <input 
-            type="checkbox" 
+            type="checkbox"
+            className='checkbox-input'
             name="allergen" 
             value="Seafood" 
             onChange={handleCheckboxChange}
@@ -79,7 +85,8 @@ function IntolerancesCheckboxes(props) {
       <div className='checkbox'>
         <label className='intolerance-label'>
           <input 
-            type="checkbox" 
+            type="checkbox"
+            className='checkbox-input' 
             name="allergen" 
             value="Soy"
             onChange={handleCheckboxChange}
@@ -90,7 +97,8 @@ function IntolerancesCheckboxes(props) {
       <div className='checkbox'>
         <label className='intolerance-label'>
           <input 
-            type="checkbox" 
+            type="checkbox"
+            className='checkbox-input' 
             name="allergen" 
             value="TreeNut" 
             onChange={handleCheckboxChange}
@@ -101,7 +109,8 @@ function IntolerancesCheckboxes(props) {
       <div className='checkbox'>
         <label className='intolerance-label'>
           <input 
-            type="checkbox" 
+            type="checkbox"
+            className='checkbox-input'
             name="allergen" 
             value="Wheat"
             onChange={handleCheckboxChange}

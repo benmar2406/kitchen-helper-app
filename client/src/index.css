@@ -95,7 +95,6 @@ button:hover {
 
 label {
   font-size: 2rem;
-  padding-bottom: 80px;
 }
 
 hr {
@@ -117,7 +116,6 @@ legend {
 fieldset {
   border-style: none;
 }
-
 
 .blend-in-wrapper {
   opacity: 0;
@@ -143,6 +141,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+*:focus {
+  outline: 3px solid #647E68; 
+}
+
 
 @media screen and (max-width: 800px) {
   

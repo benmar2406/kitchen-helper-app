@@ -11,7 +11,7 @@ The **Recipe Finder App** is a web application that allows users to search for r
 - User-friendly interface
 - Support for various diets and dietary preferences
 
-## Architecture
+## Architecture: Client-Server
 
 The application consists of two main components:
 
@@ -29,7 +29,7 @@ To run the app locally, follow these steps:
 
 ### Prerequisites
 
-- Node.js and npm installed on your machine
+- Node.js and npm installed 
 - A Spoonacular API key (you can get one [here](https://spoonacular.com/food-api))
 - navigate to server directory
 - setup your .env file: API_KEY=your_api_key_here
@@ -40,8 +40,6 @@ To run the app locally, follow these steps:
 
 ## Hosting on Render.com
 - project is hosted on [render.com](https://render.com/)
-- project link: https://kitchen-helper-app.onrender.com/
-- **IMPORTANT:** if you click on the project link it may take up to one minute until server functionality is active due to renders' free version limits
-  
+- project link: https://kitchen-helper-app.onrender.com/  
 
 

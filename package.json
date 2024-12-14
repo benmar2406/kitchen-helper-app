@@ -9,6 +9,7 @@
     "build": "npm install concurrently && cd client && npm install && npm run build"
   },
   "dependencies": {
-    "react-query": "^3.39.3"
+    "react-query": "^3.39.3",
+    "concurrently": "^9.0.1"
   }
 }

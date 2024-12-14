@@ -4,7 +4,7 @@
   text-align: center;
   display: block;
   width: 50%;
-  min-width: 400px;
+  min-width: 700px;
   margin: auto;
   text-align: center;
   box-sizing: border-box;
@@ -17,3 +17,4 @@
     min-width: unset;
   }
 }
+
