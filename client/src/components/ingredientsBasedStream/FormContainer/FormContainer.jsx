@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useRef } from 'react';
+import { useState, useEffect, useContext, useRef } from 'react';
 import { FormContext } from '../../../context/FormContext';
 import { useNavigate } from 'react-router-dom';
 import './FormContainer.css';
@@ -52,12 +52,11 @@ function FormContainer() {
 
     //displays the submit button that triggers api call for recipes only when all requirements are met or when user clicks from recipes back to settings
     useEffect(() => {
-      
-        const isReadyForSubmission = dietChoice !== '' && 
-          ((intoleranceExisting === true && selectedIntolerances.length > 0) || 
-          (intoleranceExisting === false)) && 
-          ingredients.length > 0;
-        setReadyForSubmission(isReadyForSubmission);
+      const isReadyForSubmission = dietChoice !== '' && 
+        ((intoleranceExisting === true && selectedIntolerances.length > 0) || 
+        (intoleranceExisting === false)) && 
+        ingredients.length > 0;
+      setReadyForSubmission(isReadyForSubmission);
   
     }, [dietChoice, intoleranceExisting, selectedIntolerances, ingredients, setReadyForSubmission]);
   
@@ -69,8 +68,6 @@ function FormContainer() {
           })
         }}, [readyForSubmission])
       
-
-
 
   //disable "no recipe found" message when an ingredient is changed
   useEffect(() => {
