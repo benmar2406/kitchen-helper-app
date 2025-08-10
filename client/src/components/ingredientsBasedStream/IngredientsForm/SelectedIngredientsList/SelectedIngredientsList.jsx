@@ -19,7 +19,8 @@ function SelectedIngredientsList() {
     return (
             <ul 
                 className="SelectedIngredientsList"
-                role='presentation'>
+                role='presentation'
+            >
                 {ingredients.map((ingredient, id) => (
                     <SelectedIngredient 
                         key={id} 
