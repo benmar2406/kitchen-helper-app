@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { FormContext } from '../../../../context/FormContext';
 import './SelectedIngredientsList.css';
 import SelectedIngredient from '../SelectedIngredient/SelectedIngredient';
 
-function SuggestionsList() {
+function SelectedIngredientsList() {
 
     const { setIngredients, ingredients } = useContext(FormContext); 
 
@@ -15,15 +15,20 @@ function SuggestionsList() {
         });
     };
 
+
     return (
             <ul 
                 className="SelectedIngredientsList"
                 role='presentation'>
                 {ingredients.map((ingredient, id) => (
-                    <SelectedIngredient key={id} ingredient={ingredient} onClick={handleDeleteIngredient}/>
+                    <SelectedIngredient 
+                        key={id} 
+                        ingredient={ingredient} 
+                        onClick={handleDeleteIngredient}
+                    />
                 ))}
             </ul>
     );
 }
 
-export default SuggestionsList;
+export default SelectedIngredientsList;

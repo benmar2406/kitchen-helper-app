@@ -1,22 +1,22 @@
 @font-face {
   font-family: 'AmaticSC-Regular';
-  src: url(assets/fonts/AmaticSC-Regular.ttf)format('truetype');
+  src: url(/fonts/AmaticSC-Regular.ttf)format('truetype');
 }
 
 @font-face {
   font-family: 'AmaticSC-Bold';
-  src: url(assets/fonts/AmaticSC-Bold.ttf)format('truetype');
+  src: url(/fonts/AmaticSC-Bold.ttf)format('truetype');
 }
 
 
 @font-face {
   font-family: 'Quicksand', sans-serif;
-  src: url(assets/fonts/Quicksand-Light.ttf)format('truetype');
+  src: url(/fonts/Quicksand-Light.ttf)format('truetype');
 }
 
 @font-face {
   font-family: 'Quicksand-SemiBold', sans-serif;
-  src: url(assets/fonts/Quicksand-SemiBold.ttf)format('truetype');
+  src: url(/fonts/Quicksand-SemiBold.ttf)format('truetype');
 }
 
 html {
@@ -33,7 +33,7 @@ body {
   min-height: 100vh;
   background: 
     linear-gradient(to bottom, rgba(13, 23, 23, 0) 70%, rgba(13, 23, 23, 1) 100%), 
-    url("./assets/img/cuisine_background.webp") no-repeat center top;
+    url("/img/cuisine_background.webp") no-repeat center top;
   background-size: cover;
   background-attachment: fixed;
   padding:0;

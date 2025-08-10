@@ -21,19 +21,19 @@ function IngredientsForm({ ingredients }) {
 
     // Get autocomplete suggestions for ingredients via spooncular API
     async function handleAutocomplete(query) {
-    if (query.length > 1) {
-        try {
-            const response = await fetch(`/api/autocomplete?query=${query}`);
-            const suggestions = await response.json();
-            setSuggestions(suggestions);
-        } catch (error) {
-            console.error('Error fetching autocomplete suggestions:', error);
-            console.log(response.statusText)
-        }
-    } else {
-        setSuggestions([]);
-    }
-} 
+      if (query.length > 2) {
+          try {
+              const response = await fetch(`/api/autocomplete?query=${query}`);
+              const suggestions = await response.json();
+              setSuggestions(suggestions);
+          } catch (error) {
+              console.error('Error fetching autocomplete suggestions:', error);
+              console.log(response.statusText)
+          }
+      } else {
+          setSuggestions([]);
+      }
+  } 
 
     // Add clicked suggestion to ingredients
     const handleSuggestionClick = (suggestion) => {
@@ -44,6 +44,7 @@ function IngredientsForm({ ingredients }) {
         setInputValue('');
         setSuggestions([]);
         };
+    
 
   return (
     <>
