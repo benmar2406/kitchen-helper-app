@@ -33,7 +33,7 @@ function RecipeCardsContainer() {
             <div className='RecipeCardsContainer'>
                 {requestCompleted && data.length > 0 ? (
                     recipes.map((recipe, id) => (
-                    <RecipeCard key={id} recipe={recipe} />
+                        <RecipeCard key={id} recipe={recipe} />
                     ))
                 ) : (
                     requestCompleted && <NoRecipesMessage />
