@@ -18,7 +18,6 @@ function RecipeCardsContainer() {
 
     const { data, recipes, requestCompleted, isLoading, isError } = useGetRecipes(ingredients, selectedIntolerances, dietChoice);
 
-
     //render the menu/settings again when back to settings button is clicked 
     const handleBackToSettingClick = () => {
         navigate('/')
