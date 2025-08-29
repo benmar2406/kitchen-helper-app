@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import { useContext } from 'react';
 import { FormContext } from '../../../context/FormContext';
 import './DietForm.css';
 

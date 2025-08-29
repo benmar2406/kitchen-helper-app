@@ -1,4 +1,3 @@
-import React from 'react';
 import './Header.css';
 import chefCookImage from '../../assets/img/chefcook.png';
 

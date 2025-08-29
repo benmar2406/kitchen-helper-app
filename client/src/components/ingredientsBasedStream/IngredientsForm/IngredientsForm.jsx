@@ -1,16 +1,12 @@
 // src/components/ingredientsBasedStream/IngredientsForm/IngredientsForm.js
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { FormContext } from '../../../context/FormContext';
 import './IngredientsForm.css';
 import SuggestionsList from './SuggestionsList/SuggestionsList';
 import SelectedIngredientsList from './SelectedIngredientsList/SelectedIngredientsList';
 
-function IngredientsForm({ ingredients }) {
-
-  const { inputValue, setInputValue } = useContext(FormContext); 
-  const { suggestions, setSuggestions } = useContext(FormContext); 
-  const { setIngredients } = useContext(FormContext); 
-
+function IngredientsForm({ ingredients, onChange }) {
+  const { inputValue, setInputValue, suggestions, setSuggestions } = useContext(FormContext);
 
   // Handle input change in IngredientForm
   const handleInputChange = (e) => {
@@ -19,32 +15,32 @@ function IngredientsForm({ ingredients }) {
     handleAutocomplete(value);
   };
 
-    // Get autocomplete suggestions for ingredients via spooncular API
-    async function handleAutocomplete(query) {
-      if (query.length > 2) {
-          try {
-              const response = await fetch(`/api/autocomplete?query=${query}`);
-              const suggestions = await response.json();
-              setSuggestions(suggestions);
-          } catch (error) {
-              console.error('Error fetching autocomplete suggestions:', error);
-              console.log(response.statusText)
-          }
-      } else {
-          setSuggestions([]);
+  // Get autocomplete suggestions for ingredients via spoonacular API
+  async function handleAutocomplete(query) {
+    if (query.length > 2) {
+      try {
+        const response = await fetch(`/api/autocomplete?query=${encodeURIComponent(query)}`);
+        const data = await response.json();
+        setSuggestions(data);
+      } catch (error) {
+        console.error('Error fetching autocomplete suggestions:', error);
       }
-  } 
+    } else {
+      setSuggestions([]);
+    }
+  }
 
-    // Add clicked suggestion to ingredients
-    const handleSuggestionClick = (suggestion) => {
-        setIngredients((prevIngredients) => {
-            const updatedIngredients = [...prevIngredients, suggestion];
-            return updatedIngredients;
-        });
-        setInputValue('');
-        setSuggestions([]);
-        };
-    
+  const handleSuggestionClick = (suggestion) => {
+    const next = [...ingredients, suggestion];
+    onChange?.(next);          
+    setInputValue('');         
+    setSuggestions([]);
+  };
+
+  const handleRemoveIngredient = (toRemove) => {
+    const next = ingredients.filter((ing) => ing.id !== toRemove.id);
+    onChange?.(next);
+  };
 
   return (
     <>
@@ -72,8 +68,12 @@ function IngredientsForm({ ingredients }) {
           )}
         </fieldset>
       </div>
+
       {ingredients.length > 0 && (
-        <SelectedIngredientsList ingredients={ingredients} />
+        <SelectedIngredientsList
+          ingredients={ingredients}
+          onRemove={handleRemoveIngredient}   
+        />
       )}
     </>
   );
